@@ -1,0 +1,60 @@
+.contenedor_barra_buscadora {
+    margin: 1.6rem 0;
+    display: flex;
+    width: 90%;
+    height: 38px;
+    position: relative;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.lupa {
+    position: absolute;
+    width: 24px;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.barra_buscadora {
+    width: 100%;
+    height: 100%;
+    padding-left: 40px; /* Espacio para que el texto no tape la lupa */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.contenedor_productos{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.referencia_titulo_productos{
+    width: 90%;
+    height: 2rem;
+}
+
+.barra_producto{
+    background-color: rgba(73, 73, 73, 0.067);
+    width: 90%;
+    padding: .8rem 1rem;
+    display: flex;
+    border-top: 1px solid #0000001e;
+}
+
+.svg_producto{
+    width: 2rem;
+}
+
+/*aca va el parrafo de la informacion de producto*/
+.informacion_producto{
+    
+}

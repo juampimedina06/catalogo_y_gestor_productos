@@ -1,0 +1,82 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-primary);
+  text-align: center;
+  padding: 20px;
+  gap: 1rem;
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que los elementos se acomoden si no entran */
+  justify-content: center;
+}
+
+.h3 {
+  color: var(--color-white);
+  font-size: 1rem;
+}
+
+.span {
+  font-weight: bold;
+  color: var(--color-white);
+}
+
+.bandera {
+  width: 30px;
+  height: auto;
+}
+
+.direccionContainer {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.direccion {
+  color: var(--color-white);
+}
+
+.redes {
+  display: flex;
+  gap: 15px;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.redes a {
+  color: #fff;
+  transition: 0.2s;
+}
+
+.redes a:hover {
+  scale: 1.1;
+}
+
+.svg {
+  width: 20px;
+}
+
+@media (max-width: 520px) {
+  .footer {
+    padding: 15px;
+  }
+
+  .info {
+    flex-direction: column; /* Acomoda los elementos en vertical */
+    gap: 5px;
+  }
+
+  .bandera {
+    width: 40px; /* Para que no se agrande demasiado */
+  }
+
+  .redes {
+    justify-content: flex-start;
+  }
+}

@@ -8,6 +8,11 @@
     box-sizing: border-box;
 }
 
+.form{
+    width: 100%;
+    height: 2.5rem;
+}
+
 .lupa {
     position: absolute;
     width: 24px;
@@ -35,17 +40,38 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom:1rem ;
 }
 
 .referencia_titulo_productos{
     width: 90%;
     height: 2rem;
+    display: flex;
+}
+
+.titulos_productos{
+    font-weight: 600;
+    font-size: .8rem;
+}
+
+.contenedor_svg{
+    width: 500px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor_informacion_productos{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .barra_producto{
-    background-color: rgba(73, 73, 73, 0.067);
+    background-color: rgba(145, 145, 145, 0.067);
     width: 90%;
-    padding: .8rem 1rem;
+    height: 3.5rem;
+    align-items: center;
     display: flex;
     border-top: 1px solid #0000001e;
 }
@@ -55,6 +81,29 @@
 }
 
 /*aca va el parrafo de la informacion de producto*/
-.informacion_producto{
-    
+.informacion_producto {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+
+.boton_eliminar{
+    background-color: rgb(184, 11, 11);
+}
+.boton_actualizar{
+    background-color: rgb(93, 226, 226);
+}
+
+.boton_actualizar,
+.boton_eliminar{
+    display: flex;
+    justify-content: center;
+    margin-right: 2rem;
+    width: 2rem;
+    height: 1.8rem;
+    border-radius: 3px;
+    svg{
+        width: 1.1rem;
+    }
 }

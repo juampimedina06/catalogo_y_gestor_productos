@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 import PaginaBase from "./pages/PaginaBase";
 import NuevoProducto from "./pages/NuevoProducto";
 import Stock from "./pages/Stock/Stock";
+import TerminosCondiciones from "./pages/TerminosCondiciones/TerminosCondiciones";
 
 
 function AppRoutes() {
@@ -16,6 +17,7 @@ function AppRoutes() {
               <Route path="/Stock" element={<Stock />} />
               <Route path="/NuevoProducto" element={ <NuevoProducto /> }/>
               <Route path=":id" element={<Player />} />
+              <Route path="/TerminosCondiciones" element={<TerminosCondiciones />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

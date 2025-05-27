@@ -4,6 +4,7 @@ import styles from "./Stock.module.css"
 import BarraBusqueda from '../../components/BarraBusqueda/BarraBusqueda'
 import ProductoStock from '../../components/ProductoStock/ProductoStock'
 import TitulosStock from '../../components/TitulosStock/TitulosStock'
+import ElementoNoEncontrado from '../../components/ElementoNoEncontrado/ElementoNoEncontrado'
 
 const Stock = () => {
   const [producto, setProducto] = useState([])
@@ -50,8 +51,16 @@ const Stock = () => {
       />
     </header>
     <section className={styles.contenedor_productos}>
-      <TitulosStock />
-      <ProductoStock filtrarProductos={filtrarProductos} />
+      {
+        filtrarProductos.length === 0 
+          ? <ElementoNoEncontrado tipoDato="codigo" />
+          : (
+          <>
+            <TitulosStock />
+            <ProductoStock filtrarProductos={filtrarProductos} />
+          </>
+      )
+      }
     </section>
     </>
   )

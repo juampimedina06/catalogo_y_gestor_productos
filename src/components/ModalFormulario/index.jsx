@@ -64,7 +64,7 @@ const ModalFormulario = ({ isOpen, closeModal, id }) => {
     return isOpen ? (
         <div className={styles.contenedor_modal}>
             <div className={styles.modal}>
-                <h2 className={styles.titulo}>Editar carta</h2>
+                <h2 className={styles.titulo}>Editar producto</h2>
                 <form onSubmit={(e) => e.preventDefault()}
                 
                 className={styles.formulario}>

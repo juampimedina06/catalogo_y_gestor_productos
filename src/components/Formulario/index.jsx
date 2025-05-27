@@ -1,5 +1,4 @@
 import { useState } from "react";
-import React from "react";
 import Button from "@mui/material/Button";
 import styles from "./Formulario.module.css";
 import MenuItem from '@mui/material/MenuItem';

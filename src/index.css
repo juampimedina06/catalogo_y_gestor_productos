@@ -2,10 +2,10 @@
 
 :root {
     --font: "Montserrat", serif;
-    --color-primary: #ac2020; /* Rojo vino, elegante y serio */
-    --color-secundary: #D32F2F; /* Rojo intenso pero no chillón */
+    --color-primary: #000000; /* Rojo vino, elegante y serio */
+    --color-secundary: #3b3b3b; /* Rojo intenso pero no chillón */
     --color-claro:#f8f6f4;
-    --color-tercero: #7B1E1E; /* Rojo oscuro, sofisticado */
+    --color-tercero: #868686; /* Rojo oscuro, sofisticado */
     --color-white: #FFFFFF; /* Blanco puro */
     --color-black: #1C1C1C; /* Negro con un leve toque grisáceo para suavizar */
 }

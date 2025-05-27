@@ -1,10 +1,11 @@
-import React from 'react'
 import styles from "./CabeceraSuperior.module.css"
 
 const CabeceraSuperior = () => {
   return (
     <div className={styles.cabecera_superior}>
-          <p className={styles.ubicacion}>Av. Leandro N. Alem 2874, X5012 Córdoba</p>
+          <p className={styles.ubicacion}>Lorem ipsum dolor sit amet consectetur adipisicing 
+            
+          `</p>
       </div>
   )
 }

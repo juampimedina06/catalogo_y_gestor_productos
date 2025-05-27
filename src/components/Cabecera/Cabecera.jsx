@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from "./Cabecera.module.css";
 import { Link, useLocation } from "react-router-dom";
 import CabeceraLink from '../CabeceraLink/CabeceraLink';
@@ -15,10 +15,10 @@ const Cabecera = () => {
     <header className={styles.cabecera}>
       <Link to='/'>
         <section className={styles.logoContainer}>
-          <img src="/img/bandera-roja.png" alt="Logo el pequeño honk cong" />
+          <img src="/img/bandera-roja.png" alt="Logo negocio" />
           <div className={styles.contenedor_texto}>
-            <p>El pequeño</p>
-            <p>Honk Kong</p>
+            <p>Nombre</p>
+            <p>Negocio</p>
           </div>
         </section>
       </Link>

@@ -1,4 +1,3 @@
-import React from 'react'
 import Cabecera from '../../components/Cabecera/Cabecera'
 import Container from '../../components/Container'
 import { Outlet } from 'react-router-dom'

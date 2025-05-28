@@ -48,11 +48,11 @@ const Inicio = () => {
       <Banner />
       <section className={styles.contenedor_buscador}>
         <div className={styles.contenedor_titulo}>
-          <Titulo titulo="Productos" />
+          <Titulo titulo="¡Oportunidades unicas!" />
         </div>
         <div className={styles.contenedor_buscadores}>
         <BarraBusqueda 
-          placeholder="Introduzca el nombre del producto"
+          placeholder="Buscar producto"
           name="filtrarProducto"
           value={filtrador}
           onChange={handleInputChange}

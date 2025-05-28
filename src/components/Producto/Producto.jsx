@@ -18,13 +18,7 @@ const Producto = ({nombre, precio, imagen}) => {
           <h3 className={styles.titulo}>{nombre}</h3>
         </div>
         <div className={styles.contenedor_precio}>
-          <span className={styles.precio}>Desde: ${precio}</span>
-        </div>
-        <div className={styles.contenedor_botones}>
-          <form action="" className={styles.formulario}>
-            <input className={styles.input_numerico} type="number" defaultValue="1"/>
-            <button className={styles.boton_agregar}>agregar</button>
-          </form>
+          <span className={styles.precio}>${precio}</span>
         </div>
       </div>
       </CardActionArea>

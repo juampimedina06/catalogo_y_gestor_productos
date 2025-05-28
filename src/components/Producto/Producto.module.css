@@ -1,13 +1,16 @@
 .producto {
   overflow: hidden;
   width: 100%;
-  height: 320px;
+  height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
   text-align: center;
   position: relative;
+  background-color: #fff;
+  border: 1px solid rgba(39, 39, 39, 0.133);
+  border-radius: 10px;
 }
 
 .contenedor_imagen {
@@ -35,8 +38,8 @@
 }
 
 .titulo {
-  font-size: 17px;
-  font-weight: 650;
+  font-size: .8rem;
+  font-weight: 500;
   line-height: 21px;
   color: var(--color-primary);
 }

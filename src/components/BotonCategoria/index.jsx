@@ -9,7 +9,18 @@ const BotonCategoria = ({name,value,handleChange, categorias}) => {
 
   return (
     <div className={styles.contenedor_categorias}>
-      <FormControl fullWidth>
+      <FormControl 
+        fullWidth 
+        size="small" 
+        className={styles.categoria}
+        sx={{
+          '& .MuiOutlinedInput-root': {
+            '&.Mui-focused fieldset': {
+              borderColor: 'black', // borde negro cuando está enfocado
+            },
+          },
+        }}
+      >
         <InputLabel className={styles.input_categorias} id="demo-simple-select-label">Categorias</InputLabel>
         <Select
           labelId="demo-simple-select-label"

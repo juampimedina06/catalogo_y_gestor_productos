@@ -2,10 +2,12 @@ import { useState } from 'react';
 import styles from "./Cabecera.module.css";
 import { Link, useLocation } from "react-router-dom";
 import CabeceraLink from '../CabeceraLink/CabeceraLink';
+import BlancoNegroTema from '../BlancoNegroTogle/BlancoNegroTogle';
 
 const Cabecera = () => {
   const location = useLocation();
   const [menuAbierto, setMenuAbierto] = useState(false);
+  
 
   const toggleMenu = () => {
     setMenuAbierto(!menuAbierto);
@@ -34,6 +36,7 @@ const Cabecera = () => {
         <CabeceraLink url='/NuevoProducto' isActive={location.pathname === '/NuevoProducto'}>
           Subir producto
         </CabeceraLink>
+        
       </nav>
 
       {/* BOTÓN HAMBURGUESA */}
@@ -53,6 +56,7 @@ const Cabecera = () => {
           Subir producto
         </CabeceraLink>
       </nav>
+      <BlancoNegroTema />
     </header>
   );
 };

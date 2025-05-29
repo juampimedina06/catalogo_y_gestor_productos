@@ -4,7 +4,6 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import styles from "./BotonCategoria.module.css"
 
-
 const BotonCategoria = ({name,value,handleChange, categorias}) => {
 
   return (

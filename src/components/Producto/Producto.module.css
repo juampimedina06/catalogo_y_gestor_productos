@@ -8,8 +8,7 @@
   align-items: start;
   text-align: center;
   position: relative;
-  background-color: #fff;
-  border: 1px solid rgba(39, 39, 39, 0.133);
+  border: 1px solid #535353;
   border-radius: 10px;
 }
 

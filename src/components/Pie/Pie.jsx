@@ -1,5 +1,5 @@
 import styles from "./Pie.module.css";
-import { FaInstagram, FaFacebook, FaTiktok, FaCcVisa, FaCcMastercard, FaCcPaypal } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaLinkedin, FaCcVisa, FaCcMastercard, FaCcPaypal } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import Path from "../Path/Path";
 
@@ -8,7 +8,7 @@ const Pie = () => {
     <footer className={styles.footer}>
       <div className={styles.contenedor_footer}>
         <div className={styles.grid}>
-          {/* Redes sociales */}
+
           <div className={styles.seccion}>
             <h4 className={styles.titulo}>Seguinos</h4>
             <div className={styles.redes}>
@@ -18,35 +18,30 @@ const Pie = () => {
               <Path indicador="Facebook">
                 <a href="https://www.facebook.com/bazarmayoristaalem2874cordoba?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
               </Path>
-              <Path indicador="TikTok">
-                <a href="https://www.tiktok.com/@todo.lo.que.buscasss?lang=es" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
+              <Path indicador="Linkedin">
+                <a href="https://www.linkedin.com/in/juan-pablo-medina-199b3b2b4/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
               </Path>
             </div>
           </div>
 
-          {/* Navegación */}
           <div className={styles.seccion}>
             <h4 className={styles.titulo}>Tienda</h4>
             <ul className={styles.links}>
-              <li><a href="#">Inicio</a></li>
+              <li><a href="/Inicio">Inicio</a></li>
               <li><a href="#">Productos</a></li>
-              <li><a href="#">Ofertas</a></li>
-              <li><a href="#">Contacto</a></li>
+              <li><a href="https://api.whatsapp.com/send?phone=5493516598216">Contacto</a></li>
             </ul>
           </div>
 
-          {/* Ayuda */}
           <div className={styles.seccion}>
             <h4 className={styles.titulo}>Ayuda</h4>
             <ul className={styles.links}>
-              <li><a href="#">Preguntas frecuentes</a></li>
+              <li><a href="/PreguntasFrecuentes" target="_blank">Preguntas frecuentes</a></li>
               <li><a href="/TerminosCondiciones" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a></li>
-              <li><a href="#">Política de privacidad</a></li>
-              <li><a href="#">Seguimiento de pedidos</a></li>
+              <li><a>Política de privacidad</a></li>
             </ul>
           </div>
 
-          {/* Newsletter */}
           <div className={styles.seccion}>
             <h4 className={styles.titulo}>Suscribite</h4>
             <p className={styles.descripcion}>Recibí ofertas y novedades antes que nadie.</p>
@@ -57,7 +52,6 @@ const Pie = () => {
           </div>
         </div>
 
-        {/* Medios de pago y derechos */}
         <div className={styles.bottom}>
           <div className={styles.pagos}>
             <FaCcVisa />

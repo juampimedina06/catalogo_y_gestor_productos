@@ -7,6 +7,7 @@ import CirculoCargar from '../../components/CirculoCargar/CirculoCargar';
 import BarraBusqueda from '../../components/BarraBusqueda/BarraBusqueda';
 import ElementoNoEncontrado from '../../components/ElementoNoEncontrado/ElementoNoEncontrado';
 import BotonCategoria from '../../components/BotonCategoria';
+import { Link } from 'react-router-dom';
 
 const Inicio = () => {
   const [producto, setProducto] = useState([]);
@@ -77,7 +78,11 @@ const Inicio = () => {
         
       ):(
         filtrarProductos.map((producto) => {  
-          return <Producto {...producto} key={producto.id} />
+          return <>
+          <Link to={`/${producto.id}`}> 
+            <Producto {...producto} key={producto.id} /> 
+          </Link>
+        </>
         })
       )} 
         </div>

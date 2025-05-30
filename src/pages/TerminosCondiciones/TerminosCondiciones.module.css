@@ -17,7 +17,7 @@
 .titulo {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #111827;
+  color: var(--color-primary);
   text-align: center;
   font-weight: 700;
 }
@@ -29,26 +29,29 @@
 .subtitle {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: var(--color-tercero);
+    color: var(--color-primary);
+
   font-weight: 600;
 }
 
 p {
   margin-bottom: 1rem;
   font-size: 1rem;
-  color: #374151;
+  color: var(--color-tercero);
 }
 
 ul {
   padding-left: 1.5rem;
   list-style-type: disc;
+  color: var(--color-tercero);
 }
 
 li {
   margin-bottom: 0.5rem;
+  color: var(--color-tercero);
 }
 
 strong {
-  color: #111827;
+  color: var(--color-primary);
   font-weight: 600;
 }

@@ -27,4 +27,9 @@
     box-sizing: border-box;
     outline: none;
     background-color: var(--color-claro);
+    color: var(--color-primary);
+}
+
+.barra_buscadora:focus{
+    border: 2px solid #ccc;
 }

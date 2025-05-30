@@ -1,41 +1,62 @@
 import styles from "./BlancoNegroTogle.module.css"
+import { useEffect, useState } from "react"
 
 export default function BlancoNegroTema() {
-    const setModoOscuro = () =>{
+    const [modo, setModo] = useState("sistema")
+
+    useEffect(() => {
+        const temaGuardado = localStorage.getItem("html")
+        if (temaGuardado === "dark") {
+            setModoOscuro()
+            setModo("oscuro")
+        } else if (temaGuardado === "light") {
+            setModoClaro()
+            setModo("claro")
+        } else {
+            setModoSistema()
+            setModo("sistema")
+        }
+    }, [])
+
+    const setModoOscuro = () => {
         document.querySelector("html").setAttribute("data-theme", "dark")
-        
     }
-    const setModoClaro = () =>{
+
+    const setModoClaro = () => {
         document.querySelector("html").setAttribute("data-theme", "light")
-
     }
-    const setModoSistema = () =>{
-        document.querySelector("html").removeAttribute("data-theme")
 
+    const setModoSistema = () => {
+        document.querySelector("html").removeAttribute("data-theme")
     }
 
     const obtenerValor = (e) => {
-        switch (e.target.value){
+        const valor = e.target.value
+        setModo(valor)
+
+        switch (valor) {
             case "oscuro":
                 setModoOscuro()
-            break;
+                localStorage.setItem("html", "dark")
+                break
             case "claro":
                 setModoClaro()
-            break;
+                localStorage.setItem("html", "light")
+                break
             case "sistema":
                 setModoSistema()
-            break;
+                localStorage.removeItem("html")
+                break
         }
     }
 
     return (
         <label className={styles.label}>
-            <select className={styles.select} onChange={obtenerValor}>
+            <select className={styles.select} value={modo} onChange={obtenerValor}>
                 <option className={styles.option} value="sistema">💻</option>
                 <option value="oscuro">🌑</option>
                 <option value="claro">🌞</option>
             </select>
         </label>
-        )
-
+    )
 }

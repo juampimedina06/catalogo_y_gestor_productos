@@ -1,32 +1,16 @@
 import styles from "./Banner.module.css"
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-
-// import required modules
-import { Pagination, Navigation } from 'swiper/modules';
+import CaruselPrincipal from "./CaruselPrincipal"
 
 const Banner = () => {
   return (
+    <>
     <div className={styles.contenedor}>
-      <Swiper
-        pagination={{
-          type: 'progressbar',
-        }}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className={styles.mySwiper}
-      >
-        <SwiperSlide><img className={styles.imagenes} src="/img/primera.png" alt="" /></SwiperSlide>
-        <SwiperSlide><img className={styles.imagenes} src="/img/ssegunda.png" alt="" /></SwiperSlide>
-        <SwiperSlide><img className={styles.imagenes} src="/img/tercera.png" alt="" /></SwiperSlide>
-      </Swiper> 
+      <CaruselPrincipal />
     </div>
+    <div>
+      
+    </div>
+    </>
   )
 }
 

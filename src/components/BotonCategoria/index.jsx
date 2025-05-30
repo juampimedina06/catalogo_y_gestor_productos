@@ -9,17 +9,35 @@ const BotonCategoria = ({name,value,handleChange, categorias}) => {
   return (
     <div className={styles.contenedor_categorias}>
       <FormControl 
-        fullWidth 
-        size="small" 
-        className={styles.categoria}
-        sx={{
-          '& .MuiOutlinedInput-root': {
-            '&.Mui-focused fieldset': {
-              borderColor: 'black', // borde negro cuando está enfocado
-            },
-          },
-        }}
-      >
+  fullWidth 
+  size="small" 
+  className={styles.categoria}
+  sx={{
+    '& .MuiInputLabel-root': {
+      color: '#ccc',              // color gris para el label arriba
+      '&.Mui-focused': {
+        color: '#ccc',          // mismo gris cuando está enfocado
+      },
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: '#ccc',      // borde gris medio normal
+      },
+      '&:hover fieldset': {
+        borderColor: '#ccc',      // borde gris medio cuando hover
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#ccc',      // borde gris medio cuando está enfocado
+      },
+      color: '#ccc',              // color de las letras input
+    },
+    '& .MuiInputBase-input': {
+      color: '#ccc',              // color texto dentro del input
+    },
+  }}
+>
+
+
         <InputLabel className={styles.input_categorias} id="demo-simple-select-label">Categorias</InputLabel>
         <Select
           labelId="demo-simple-select-label"

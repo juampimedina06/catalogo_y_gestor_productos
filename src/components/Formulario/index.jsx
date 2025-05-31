@@ -57,8 +57,6 @@ const Formulario = ({ handleSubmit }) => {
   const [description, setDescription] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
 
-
-
   const [errors, setErrors] = useState({
     title: { error: false, message: "El título es obligatorio" },
     año: { error: false, message: "Debe introducir el año de estreno" },

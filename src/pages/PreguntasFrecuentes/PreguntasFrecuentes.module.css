@@ -72,3 +72,9 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 558px) {
+  .container{
+    width: 100%;
+  }
+}

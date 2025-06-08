@@ -30,6 +30,12 @@ const Cabecera = () => {
         <CabeceraLink url='/' isActive={location.pathname === '/'}>
           Inicio
         </CabeceraLink>
+        <CabeceraLink url='/TerminosCondiciones' isActive={location.pathname === '/TerminosCondiciones'}>
+          Terminos y Condiciones
+        </CabeceraLink>
+        <CabeceraLink url='/PreguntasFrecuentes' isActive={location.pathname === '/PreguntasFrecuentes'}>
+          Preguntas Frecuentes
+        </CabeceraLink>
         <CabeceraLink url='/Stock' isActive={location.pathname === '/Stock'}>
           Stock
         </CabeceraLink>
@@ -48,6 +54,12 @@ const Cabecera = () => {
       <nav className={menuAbierto ? styles.nav_responsive_activo : styles.nav_responsive}>
         <CabeceraLink url='/' isActive={location.pathname === '/'} onClick={toggleMenu}>
           Inicio
+        </CabeceraLink>
+        <CabeceraLink url='/TerminosCondiciones' isActive={location.pathname === '/TerminosCondiciones'}>
+          Terminos y Condiciones
+        </CabeceraLink>
+        <CabeceraLink url='/PreguntasFrecuentes' isActive={location.pathname === '/PreguntasFrecuentes'}>
+          Preguntas Frecuentes
         </CabeceraLink>
         <CabeceraLink url='/Stock' isActive={location.pathname === '/Stock'} onClick={toggleMenu}>
           Stock

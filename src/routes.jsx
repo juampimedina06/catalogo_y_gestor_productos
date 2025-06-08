@@ -17,7 +17,7 @@ function AppRoutes() {
               <Route index element={<Inicio />} />
               <Route path="/Stock" element={<Stock />} />
               <Route path="/NuevoProducto" element={ <NuevoProducto /> }/>
-              <Route path=":id" element={<ProductoElegido />} />
+              <Route path="producto/:id" element={<ProductoElegido />} />
               <Route path="/TerminosCondiciones" element={<TerminosCondiciones />} />
               <Route path="/PreguntasFrecuentes" element={<PreguntasFrecuentes />} />
               <Route path="*" element={<NotFound />} />

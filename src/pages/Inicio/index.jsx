@@ -79,7 +79,7 @@ const Inicio = () => {
       ):(
         filtrarProductos.map((producto) => {  
           return <>
-          <Link to={`/${producto.id}`}> 
+          <Link to={`producto/${producto.id}`}> 
             <Producto {...producto} key={producto.id} /> 
           </Link>
         </>

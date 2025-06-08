@@ -3,6 +3,7 @@
   justify-content: center;
   padding: 4rem 1rem;
   background-color: #f6f6f7;
+  width: 100%;
 }
 
 .productContainer {
@@ -44,7 +45,7 @@
 
 .image {
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   border-radius: 8px;
   object-fit: contain;
 }

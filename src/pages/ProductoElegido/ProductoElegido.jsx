@@ -4,7 +4,7 @@ import CirculoCargar from "../../components/CirculoCargar/CirculoCargar";
 import styles from "./ProductoElegido.module.css";
 
 const ProductoElegido = () => {
-  const { id } = useParams();
+  const {id} = useParams();
   const [productoElegido, setProductoElegido] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -47,8 +47,6 @@ const ProductoElegido = () => {
     className={styles.thumbnail}
   />
 </div>
-
-
         <div className={styles.imageWrapper}>
           <img
             src={productoElegido.imagen}

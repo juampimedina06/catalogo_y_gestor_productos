@@ -115,7 +115,7 @@ const ProductoStock = ({filtrarProductos, actualizarProductoEstado,eliminarProdu
           <FormularioStock 
             onSubmit={actualizarProducto}
             onChange={handleInputOnchange}
-            nameCodigo="codigo" valueCodigo={nuevoCodigo}
+            name="codigo" valueCodigo={nuevoCodigo}
             nameNombre="nombre" valueNombre={nuevoNombre}
             nameCantidad="cantidad" valueCantidad={nuevaCantidad}
             nameCategoria="categoria"  valueCategoria={nuevaCategoria}

@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './Path.module.css'
 
 const Path = ({ indicador, children }) => {

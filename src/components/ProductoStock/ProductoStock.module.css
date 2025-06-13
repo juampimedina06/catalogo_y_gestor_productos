@@ -38,18 +38,17 @@
 }
 
 .boton_eliminar{
-    background-color: rgba(204, 29, 29, 0.671);
+        background-color: rgb(204, 29, 29);
 }
 .boton_eliminar:hover{
-    background-color: rgb(204, 29, 29);
+        background-color: rgba(204, 29, 29, 0.671);
 }
 .boton_actualizar{
-    background-color: rgba(226, 164, 93, 0.699);
+        background-color: rgb(226, 164, 93);
 }
 .boton_actualizar:hover{
-    background-color: rgb(226, 164, 93);
+        background-color: rgba(226, 164, 93, 0.699);
 }
-
 
 .boton_actualizar,
 .boton_eliminar{

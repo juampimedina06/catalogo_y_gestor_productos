@@ -2,12 +2,12 @@ import { useState } from 'react'
 import InformacionProducto from './InformacionProducto'
 import styles from './ProductoStock.module.css'
 import FormularioStock from '../FormularioStock/FormularioStock'
+import servicioProducto from "../../services/productos"
 
-
-const ProductoStock = ({filtrarProductos}) => {
+const ProductoStock = ({filtrarProductos, actualizarProductoEstado,eliminarProductoEstado, mensajeNotificacion, tipoNotificacion }) => {
   const [editar, setEditar] = useState(null)
-  const [nuevoCodigo, setNuevoCodigo] = useState('')
   const [nuevoNombre, setNuevoNombre] = useState('')
+  const [nuevoCodigo, setNuevoCodigo] = useState('')
   const [nuevaCantidad, setNuevaCantidad] = useState('')
   const [nuevaCategoria, setNuevaCategoria] = useState('')
   const [nuevoPrecio, setNuevoPrecio] = useState('')
@@ -20,10 +20,7 @@ const ProductoStock = ({filtrarProductos}) => {
   setNuevaCategoria(producto.categoria)
   setNuevoPrecio(producto.precio)
   }
-  
-  const eliminarProducto = () => {
-    console.log("se quiere eliminar el producto con el nombre", )
-  }
+
 
     const handleInputOnchange = (event) => {
     const { name, value } = event.target;
@@ -52,6 +49,62 @@ const ProductoStock = ({filtrarProductos}) => {
     }
   }
 
+  const actualizarProducto = (e) => {
+      e.preventDefault();
+      
+      const objetoProducto = {
+        nombre: nuevoNombre,
+        cantidad:nuevaCantidad,
+        categoria: nuevaCategoria,
+        precio:nuevoPrecio,
+        codigo:nuevoCodigo
+      }
+      if(nuevoNombre.length  > 25){
+        alert("Nombre muy largo(maximo 25 caracteres)")
+        return
+      }
+      servicioProducto
+      .actualizar(editar, objetoProducto)
+      .then(() => {
+      actualizarProductoEstado((productosAnteriores) =>
+        productosAnteriores.map((producto) =>
+          producto.id === editar ? { ...producto, ...objetoProducto } : producto
+        )
+      );
+      mensajeNotificacion("correcta")  
+      tipoNotificacion("Producto actualizado correctamente")
+      setEditar(null)
+      setTimeout(() => {
+                mensajeNotificacion('')
+                tipoNotificacion(null)
+              }, 1000)
+      })
+      .catch(error => {
+        console.error("Error al actualizar el número:", error)
+        tipoNotificacion("incorrecta")
+        mensajeNotificacion("No se pudo actualizar el producto")  
+        setTimeout(() => {
+                mensajeNotificacion('')
+                tipoNotificacion(null)
+              }, 1000)
+      });
+  }
+
+  const eliminarProducto = (id) => {
+      if (window.confirm('¿Seguro que querés eliminar el producto?')) {
+        servicioProducto
+        .eliminar(id)
+        .then(() => {
+        eliminarProductoEstado((productosAnteriores) =>
+        productosAnteriores.filter(p => p.id !== id)
+        );
+      })
+        .catch(error =>{
+          console.log("error al eliminar un telefono",error)
+        })
+      }
+    }
+
   return (
     <div >
       {filtrarProductos.map((producto)=> (
@@ -60,7 +113,7 @@ const ProductoStock = ({filtrarProductos}) => {
         {editar == producto.id 
         ? 
           <FormularioStock 
-            onSubmit={editarProducto}
+            onSubmit={actualizarProducto}
             onChange={handleInputOnchange}
             nameCodigo="codigo" valueCodigo={nuevoCodigo}
             nameNombre="nombre" valueNombre={nuevoNombre}
@@ -80,7 +133,7 @@ const ProductoStock = ({filtrarProductos}) => {
         
         <div className={styles.contenedor_boton_productos}>
           <button className={styles.boton_actualizar} onClick={() => editarProducto(producto)} ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(247,243,243,1)"><path d="M16.7574 2.99678L14.7574 4.99678H5V18.9968H19V9.23943L21 7.23943V19.9968C21 20.5491 20.5523 20.9968 20 20.9968H4C3.44772 20.9968 3 20.5491 3 19.9968V3.99678C3 3.4445 3.44772 2.99678 4 2.99678H16.7574ZM20.4853 2.09729L21.8995 3.5115L12.7071 12.7039L11.2954 12.7064L11.2929 11.2897L20.4853 2.09729Z"></path></svg></button>
-          <button className={styles.boton_eliminar} onClick={() => eliminarProducto(producto.nombre)} ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,1)"><path d="M7 4V2H17V4H22V6H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V6H2V4H7ZM6 6V20H18V6H6ZM9 9H11V17H9V9ZM13 9H15V17H13V9Z"></path></svg></button>
+          <button className={styles.boton_eliminar} onClick={() => eliminarProducto(producto.id)} ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(255,255,255,1)"><path d="M7 4V2H17V4H22V6H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V6H2V4H7ZM6 6V20H18V6H6ZM9 9H11V17H9V9ZM13 9H15V17H13V9Z"></path></svg></button>
         </div>
       </div> 
       ))

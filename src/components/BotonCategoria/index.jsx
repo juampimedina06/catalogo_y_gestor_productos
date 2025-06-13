@@ -36,8 +36,6 @@ const BotonCategoria = ({name,value,handleChange, categorias}) => {
     },
   }}
 >
-
-
         <InputLabel className={styles.input_categorias} id="demo-simple-select-label">Categorias</InputLabel>
         <Select
           labelId="demo-simple-select-label"

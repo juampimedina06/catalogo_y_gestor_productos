@@ -1,12 +1,36 @@
 .formulario{
     width: 100%;
     display: flex;
-    justify-content: center
+    justify-content: center;
+    gap: 1rem;
+    background-attachment: blue;
+    padding: 0 0 0 2.5rem;
 }
 
 .input{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 180px;
+    max-width: 150px;
+    padding: 0 0 0 10px;
+    background-color: var(--color-primary);
+    color: var(--color-claro);
+    border-radius: 5px;
+}
+
+.boton_formulario{
+    display: flex;
+    justify-content: center;
+    height: 1.8rem;
+    width: 2rem;
+    border-radius: 3px;
+    transition: .3s;
+    background-color: #2efd05c9;
+    svg{
+        width: 1.1rem;
+    }
+}
+
+.boton_formulario:hover{
+    background-color: #2efd0575;
 }

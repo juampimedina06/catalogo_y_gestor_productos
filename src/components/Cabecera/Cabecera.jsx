@@ -19,8 +19,8 @@ const Cabecera = () => {
         <section className={styles.logoContainer}>
           <img src="/img/bandera-roja.png" alt="Logo negocio" />
           <div className={styles.contenedor_texto}>
-            <p>Nombre</p>
-            <p>Negocio</p>
+            <p>Tecno</p>
+            <p>Plus</p>
           </div>
         </section>
       </Link>

@@ -3,7 +3,6 @@ import Button from "@mui/material/Button";
 import styles from "./Formulario.module.css";
 import MenuItem from '@mui/material/MenuItem';
 import DarkTextField from "../InputEstilizado";
-import ModalMensaje from "../ModalReutilizable";
 
 async function subirProducto(nombre,codigo,categoria,descripcion,imagen,cantidad,id,fecha,precio, setModalVisible) {
   
@@ -236,7 +235,6 @@ const Formulario = ({ handleSubmit }) => {
           Limpiar
         </Button>
       </div>
-      <ModalMensaje mensaje="Video subido correctamente" visible={modalVisible} onClose={() => setModalVisible(false)} />
     </form>
     
   );

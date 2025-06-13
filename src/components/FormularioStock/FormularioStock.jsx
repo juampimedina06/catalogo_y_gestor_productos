@@ -1,5 +1,8 @@
 import InputStock from "./InputStock"
 import styles from "./FormularioStock.module.css"
+import servicioTelefono from "../../services/productos"
+import { useEffect, useState } from "react"
+import InputCategoria from "../InputCategoria/InputCategoria"
 
 const FormularioStock = ({
     onSubmit, 
@@ -10,33 +13,52 @@ const FormularioStock = ({
     nameCategoria, valueCategoria,
     namePrecio,valuePrecio
 }) => {
+  const [categorias, setCategorias] = useState([valueCategoria])
+
+  useEffect(() =>{
+  servicioTelefono
+  .obtener()
+  .then(response =>{
+      const categorias = [...new Set(response.map(producto => producto.categoria))];
+      setCategorias(categorias);
+  })
+  },[])
+
   return (
-    <form className={styles.formulario} action={onSubmit}>
+    <form className={styles.formulario} onSubmit={onSubmit}>
       <InputStock
         name={nameCodigo}
         value={valueCodigo}
         onChange={onChange}
+        type="text"
       />
       <InputStock 
         name={nameNombre}
         value={valueNombre}
         onChange={onChange}
+        type="text"
       />
       <InputStock 
         name={nameCantidad}
         value={valueCantidad}
         onChange={onChange}
+        type="number"
       />
-      <InputStock 
-        name={nameCategoria}
-        value={valueCategoria}
-        onChange={onChange}
+      <InputCategoria 
+      name={nameCategoria}
+      value={valueCategoria}
+      handleChange={onChange} 
+      categorias={categorias}
       />
       <InputStock 
         name={namePrecio}
         value={valuePrecio}
         onChange={onChange}
+        type="number"
       />
+      <button type="submit" className={styles.boton_formulario}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff"><path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"></path></svg>
+      </button>
     </form>
   )
 }

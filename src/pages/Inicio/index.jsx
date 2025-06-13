@@ -8,6 +8,7 @@ import BarraBusqueda from '../../components/BarraBusqueda/BarraBusqueda';
 import ElementoNoEncontrado from '../../components/ElementoNoEncontrado/ElementoNoEncontrado';
 import BotonCategoria from '../../components/BotonCategoria';
 import { Link } from 'react-router-dom';
+import servicioProducto from "../../services/productos"
 
 const Inicio = () => {
   const [producto, setProducto] = useState([]);
@@ -17,12 +18,12 @@ const Inicio = () => {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
 
   useEffect(() => {
-    fetch("https://67c6be3c351c081993fe9984.mockapi.io/productos/producto")
-    .then (response => response.json())
-    .then (data =>{
-      setProducto(data)
+    servicioProducto
+    .obtener()
+    .then (response =>{
+      setProducto(response)
       setLoading(false)
-      const categoriasUnicas = [...new Set(data.map(producto => producto.categoria))];
+      const categoriasUnicas = [...new Set(response.map(producto => producto.categoria))];
       setCategorias(categoriasUnicas);
     })
   }, []);

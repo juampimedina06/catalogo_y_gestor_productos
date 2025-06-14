@@ -1,6 +1,6 @@
 import InputStock from "./InputStock"
 import styles from "./FormularioStock.module.css"
-import servicioTelefono from "../../services/productos"
+import servicioProductos from "../../services/productos"
 import { useEffect, useState } from "react"
 import InputCategoria from "../InputCategoria/InputCategoria"
 
@@ -16,7 +16,7 @@ const FormularioStock = ({
   const [categorias, setCategorias] = useState([valueCategoria])
 
   useEffect(() =>{
-  servicioTelefono
+  servicioProductos
   .obtener()
   .then(response =>{
       const categorias = [...new Set(response.map(producto => producto.categoria))];

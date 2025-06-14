@@ -2,8 +2,9 @@
     width: 100%;
     height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    background-color: red;
+    background-color: rgb(156, 153, 153);
 }
 
 .contenedor h2{
@@ -20,4 +21,6 @@
 
 .contenedor_formulario{
     padding: 0 1rem;
+    display: flex;
+
 }

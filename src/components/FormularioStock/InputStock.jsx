@@ -1,6 +1,6 @@
 import styles from "./FormularioStock.module.css"
 
-const InputStock = ({name, value, onChange, type}) => {
+const InputStock = ({name, value, onChange, type, clase}) => {
     return (
             <input
                 className={styles.input}

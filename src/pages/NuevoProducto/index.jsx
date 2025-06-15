@@ -78,8 +78,9 @@ function NuevoProducto() {
       .crear(nuevoProducto)
       .then((respuesta)=>{
         console.log("producto subido con exito", respuesta)
+        window.location.href = "/";
       })
-      .cath((error)=>{
+      .catch((error)=>{
         console.log("error al subir el producto", error)
       })
   }

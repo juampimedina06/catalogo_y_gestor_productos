@@ -7,7 +7,8 @@
     padding: 0 0 0 2.5rem;
 }
 
-.input{
+
+.input_stock{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -18,7 +19,56 @@
     border-radius: 5px;
 }
 
-.inputstock
+.input_producto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 0 0 10px;
+    background-color: var(--color-primary);
+    color: var(--color-claro);
+    border-radius: 5px;
+    height: 2.5rem;
+}
+
+
+.contenedor_file{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input_file {
+    display: none;
+}
+
+.botonArchivo {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0px;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+.nombreArchivo {
+    display: block;
+    margin-top: 8px;
+    color: #374151;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+}
+
+
 
 .boton_formulario{
     display: flex;

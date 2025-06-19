@@ -1,65 +1,24 @@
-import { useState } from "react";
 import FormularioNuevoProducto from "../../components/FormularioNuevoProducto/FormularioNuevoProducto";
 import styles from "./NuevoProducto.module.css";
 import servicioProductos from "../../components/services/servicioProductos";
+import { useForm } from "../../hooks/useForm";
 
 function NuevoProducto() {
-  const [nombreProducto, setNombreProducto] = useState("")
-  const [precioProducto, setPrecioProducto] = useState("")
-  const [fechaProducto, setFechaProducto] = useState("")
-  const [codigoProducto, setCodigoProducto] = useState("")
-  const [descripcionProducto, setDescripcionProducto] = useState("")
-  const [categoriaProducto, setCategoriaProducto] = useState("")
-  const [cantidadProducto, setCantidadProducto] = useState("")
-  const [imagenPrincipal, setImagenPrincipal] = useState("")
-  const [imagenDos, setImagenDos] = useState("")
-  const [imagenTres, setImagenTres] = useState("")
-  const [imagenCuatro, setImagenCuatro] = useState("")
-  const [imagenCinco, setImagenCinco] = useState("")
 
-
-  const handleInputOnchange = (e) =>{
-    const {name, value} = e.target
-    
-    switch(name){
-      case 'nombre':
-        setNombreProducto(value)
-      break
-      case 'precio':
-        setPrecioProducto(value)
-      break
-      case 'fecha':
-        setFechaProducto(value)
-      break
-      case 'codigo':
-        setCodigoProducto(value)
-      break
-      case 'descripcion':
-        setDescripcionProducto(value)
-      break
-      case 'categoria':
-        setCategoriaProducto(value)
-      break
-      case 'cantidad':
-        setCantidadProducto(value)
-      break
-      case 'imagenPrincipal':
-        setImagenPrincipal(value)
-      break
-      case 'imagenDos':
-        setImagenDos(value)
-      break
-      case 'imagenTres':
-        setImagenTres(value)
-      break
-      case 'imagenCuatro':
-        setImagenCuatro(value)
-      break
-      case 'imagenCinco':
-        setImagenCinco(value)
-      break
-    }
-  }
+  const {handleChange, nombreProducto, precioProducto,fechaProducto,codigoProducto,descripcionProducto,categoriaProducto,cantidadProducto,imagenPrincipal,imagenDos,imagenTres,imagenCuatro,imagenCinco} = useForm({
+    nombreProducto:"",
+    precioProducto:"",
+    fechaProducto:"",
+    codigoProducto:"",
+    descripcionProducto:"",
+    categoriaProducto:"",
+    cantidadProducto:"",
+    imagenPrincipal:"",
+    imagenDos:"",
+    imagenTres:"",
+    imagenCuatro:"",
+    imagenCinco:"",
+  })
 
   const subirProducto = (e) => {
     e.preventDefault()
@@ -78,6 +37,7 @@ function NuevoProducto() {
       .crear(nuevoProducto)
       .then((respuesta)=>{
         console.log("producto subido con exito", respuesta)
+        
         window.location.href = "/";
       })
       .catch((error)=>{
@@ -91,14 +51,14 @@ function NuevoProducto() {
         <div className={styles.contenedor_formulario}>
           <FormularioNuevoProducto 
             onSubmit={subirProducto}
-            onChange={handleInputOnchange}
-            nameNombre="nombre" valueNombre={nombreProducto}
-            namePrecio="precio" valuePrecio={precioProducto}
-            nameFecha="fecha" valueFecha={fechaProducto}
-            nameCodigo="codigo" valueCodigo={codigoProducto}
-            nameDescripcion="descripcion" valueDescripcion={descripcionProducto}
-            nameCategoria="categoria" valueCategoria={categoriaProducto}
-            nameCantidad="cantidad" valueCantidad={cantidadProducto}
+            onChange={handleChange}
+            nameNombre="nombreProducto" valueNombre={nombreProducto}
+            namePrecio="precioProducto" valuePrecio={precioProducto}
+            nameFecha="fechaProducto" valueFecha={fechaProducto}
+            nameCodigo="codigoProducto" valueCodigo={codigoProducto}
+            nameDescripcion="descripcionProducto" valueDescripcion={descripcionProducto}
+            nameCategoria="categoriaProducto" valueCategoria={categoriaProducto}
+            nameCantidad="cantidadProducto" valueCantidad={cantidadProducto}
             nameImagenPrincipal="imagenPrincipal" valueImagenPrincipal={imagenPrincipal}
             nameImangeDos="ImagenDos" valueImagenDos={imagenDos}
             nameImangeTres="ImagenTres" valueImagenTres={imagenTres}

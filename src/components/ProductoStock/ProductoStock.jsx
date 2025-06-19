@@ -3,55 +3,33 @@ import InformacionProducto from './InformacionProducto'
 import styles from './ProductoStock.module.css'
 import FormularioStock from '../FormularioStock/FormularioStock'
 import servicioProducto from "../../services/productos"
+import { useForm } from "../../hooks/useForm";
+
 
 const ProductoStock = ({filtrarProductos, actualizarProductoEstado,eliminarProductoEstado, mensajeNotificacion, tipoNotificacion }) => {
   const [editar, setEditar] = useState(null)
-  const [nuevoNombre, setNuevoNombre] = useState('')
-  const [nuevoCodigo, setNuevoCodigo] = useState('')
-  const [nuevaCantidad, setNuevaCantidad] = useState('')
-  const [nuevaCategoria, setNuevaCategoria] = useState('')
-  const [nuevoPrecio, setNuevoPrecio] = useState('')
 
   const editarProducto = (producto) => {
   setEditar(producto.id)
-  setNuevoCodigo(producto.codigo)
-  setNuevoNombre(producto.nombre)
-  setNuevaCantidad(producto.cantidad)
-  setNuevaCategoria(producto.categoria)
-  setNuevoPrecio(producto.precio)
-  }
+  setFormulario({
+    nuevoCodigo: producto.codigo,
+    nuevoNombre: producto.nombre,
+    nuevaCantidad: producto.cantidad,
+    nuevaCategoria: producto.categoria,
+    nuevoPrecio: producto.precio
+  })
+}
 
-
-    const handleInputOnchange = (event) => {
-    const { name, value } = event.target;
-  
-    switch(name){
-      case 'codigo':
-        setNuevoCodigo(value)
-        console.log("nuevo codigo:",value)
-      break
-      case 'nombre':
-        setNuevoNombre(value)
-        console.log("nuevo nombre:",value)
-      break
-      case 'cantidad':
-        setNuevaCantidad(value)
-        console.log("nueva cantidad:",value)
-      break
-      case 'categoria':
-        setNuevaCategoria(value)
-        console.log("nueva categoria:",value)
-      break
-      case 'precio':
-        setNuevoPrecio(value)
-        console.log("nuevo precio:",value)
-      break
-    }
-  }
+  const {handleChange, nuevoCodigo, nuevoNombre, nuevaCantidad, nuevaCategoria, nuevoPrecio, setFormulario} = useForm({
+  nuevoNombre: '',
+  nuevoCodigo:'',
+  nuevaCantidad: '',
+  nuevaCategoria:'',
+  nuevoPrecio:'',
+  })
 
   const actualizarProducto = (e) => {
       e.preventDefault();
-      
       const objetoProducto = {
         nombre: nuevoNombre,
         cantidad:nuevaCantidad,
@@ -114,12 +92,12 @@ const ProductoStock = ({filtrarProductos, actualizarProductoEstado,eliminarProdu
         ? 
           <FormularioStock 
             onSubmit={actualizarProducto}
-            onChange={handleInputOnchange}
-            name="codigo" valueCodigo={nuevoCodigo}
-            nameNombre="nombre" valueNombre={nuevoNombre}
-            nameCantidad="cantidad" valueCantidad={nuevaCantidad}
-            nameCategoria="categoria"  valueCategoria={nuevaCategoria}
-            namePrecio="precio" valuePrecio={nuevoPrecio}
+            onChange={handleChange}
+            nameCodigo="nuevoCodigo" valueCodigo={nuevoCodigo}
+            nameNombre="nuevoNombre" valueNombre={nuevoNombre}
+            nameCantidad="nuevaCantidad" valueCantidad={nuevaCantidad}
+            nameCategoria="nuevaCategoria"  valueCategoria={nuevaCategoria}
+            namePrecio="nuevoPrecio" valuePrecio={nuevoPrecio}
           />
         :
           <>

@@ -7,11 +7,11 @@ import TitulosStock from '../../components/TitulosStock/TitulosStock'
 import ElementoNoEncontrado from '../../components/ElementoNoEncontrado/ElementoNoEncontrado'
 import servicioProducto from "../../services/productos"
 import Notificacion from '../../components/Notificacion/Notificacion'
+import { useForm } from '../../hooks/useForm'
 
 const Stock = () => {
   const [producto, setProducto] = useState([])
   const [loading, setLoading] = useState(true)
-  const [filtrador, setFiltrador] = useState('')
   const [notificacionPersona, setNotificacionPersona] = useState('')
   const [tipoNotificacion, setTipoNotificacion] = useState(null)
   
@@ -24,12 +24,9 @@ const Stock = () => {
     })
   },[])
 
-  const handleInputChange = (event) => {
-    const {name, value} = event.target;
-    if(name === 'filtrador'){
-      setFiltrador(value)
-    }
-  }
+  const {handleChange, filtrador} = useForm({
+    filtrador:'',
+  })
 
   const filtrarProductos = producto.filter(producto =>
     producto.codigo.toLowerCase().includes(filtrador.toLowerCase()))
@@ -44,7 +41,7 @@ const Stock = () => {
       <BarraBusqueda
         placeholder='Introduzca el codigo del producto' 
         value={filtrador}
-        onChange={handleInputChange}
+        onChange={handleChange}
         name='filtrador'
       />
     </header>

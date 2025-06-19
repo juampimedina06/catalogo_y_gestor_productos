@@ -7,7 +7,6 @@ import BlancoNegroTema from '../BlancoNegroTogle/BlancoNegroTogle';
 const Cabecera = () => {
   const location = useLocation();
   const [menuAbierto, setMenuAbierto] = useState(false);
-  
 
   const toggleMenu = () => {
     setMenuAbierto(!menuAbierto);

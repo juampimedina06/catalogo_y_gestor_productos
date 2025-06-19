@@ -1,6 +1,5 @@
 import styles from "./BlancoNegroTogle.module.css"
 import { useEffect, useState } from "react"
-
 export default function BlancoNegroTema() {
     const [modo, setModo] = useState("sistema")
 

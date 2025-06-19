@@ -8,7 +8,6 @@ import TerminosCondiciones from "./pages/TerminosCondiciones/TerminosCondiciones
 import PreguntasFrecuentes from "./pages/PreguntasFrecuentes/PreguntasFrecuentes";
 import ProductoElegido from "./pages/ProductoElegido/ProductoElegido";
 
-
 function AppRoutes() {
   return (
     <BrowserRouter>

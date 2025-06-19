@@ -8,7 +8,6 @@ const Banner = () => {
       <CaruselPrincipal />
     </div>
     <div>
-      
     </div>
     </>
   )

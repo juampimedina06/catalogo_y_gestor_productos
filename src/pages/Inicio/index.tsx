@@ -8,84 +8,94 @@ import BarraBusqueda from '../../components/BarraBusqueda/BarraBusqueda';
 import ElementoNoEncontrado from '../../components/ElementoNoEncontrado/ElementoNoEncontrado';
 import BotonCategoria from '../../components/BotonCategoria';
 import { Link } from 'react-router-dom';
-import servicioProducto from "../../services/productos"
+import servicioProducto from "../../services/productos";
+import { useForm } from '../../hooks/useForm';
+
+interface FormData{
+  filtrador:string;
+  categoriaSeleccionada:string;
+}
+
+interface ProductoType {
+  id:number;
+  nombre: string;
+  imagen: string;
+  cantidad: number;
+  categoria: string;
+  precio: number;
+  fecha: string;
+  descripcion:string;
+  codigo:string;
+}
 
 const Inicio = () => {
-  const [producto, setProducto] = useState([]);
-  const [categorias, setCategorias] = useState([]);
-  const [loading, setLoading] = useState(true)
-  const [filtrador, setFiltrador] = useState('')
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
+  const [producto, setProducto] = useState<ProductoType[]>([]);
+  const [categorias, setCategorias] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const { handleChange, filtrador, categoriaSeleccionada } = useForm<FormData>({
+    filtrador: "",
+    categoriaSeleccionada: "",
+  });
 
   useEffect(() => {
     servicioProducto
-    .obtener()
-    .then (response =>{
-      setProducto(response)
-      setLoading(false)
-      const categoriasUnicas = [...new Set(response.map(producto => producto.categoria))];
-      setCategorias(categoriasUnicas);
-    })
+      .obtener()
+      .then((response: ProductoType[]) => {
+        setProducto(response);
+        setLoading(false);
+        const categoriasUnicas = [...new Set(response.map(p => p.categoria))];
+        setCategorias(categoriasUnicas);
+      });
   }, []);
 
-  const filtrarProductos = producto.filter(producto => 
+  const filtrarProductos = producto.filter((producto) =>
     producto.nombre.toLowerCase().includes(filtrador.toLowerCase()) &&
     (categoriaSeleccionada === '' || producto.categoria === categoriaSeleccionada)
   );
 
-  const handleInputChange = (event) => {
-    const {name, value} = event.target;
-    if(name === 'filtrarProducto'){
-      setFiltrador(value)
-    }else if(name === 'categoria'){
-      setCategoriaSeleccionada(value)
-    }
+  if (loading) {
+    return <CirculoCargar />;
   }
 
-  if (loading){
-    return <CirculoCargar />
-  }
   return (
     <>
       <Banner />
       <section className={styles.contenedor_buscador}>
         <div className={styles.contenedor_titulo}>
-          <Titulo titulo="¡Oportunidades unicas!" />
+          <Titulo titulo="¡Oportunidades únicas!" />
         </div>
         <div className={styles.contenedor_buscadores}>
-        <BarraBusqueda 
-          placeholder="Buscar producto"
-          name="filtrarProducto"
-          value={filtrador}
-          onChange={handleInputChange}
-        />
-        <BotonCategoria 
-          name="categoria"
-          value={categoriaSeleccionada}
-          handleChange={handleInputChange}
-          categorias={categorias}
-        />
+          <BarraBusqueda
+            placeholder="Buscar producto"
+            name="filtrador"
+            value={filtrador}
+            onChange={handleChange}
+          />
+          <BotonCategoria
+            name="categoria"
+            value={categoriaSeleccionada}
+            handleChange={handleChange}
+            categorias={categorias}
+          />
         </div>
       </section>
+
       <section className={styles.contenedor_producto}>
-        {categoriaSeleccionada.length == 0 ? (
-          <></>
-        ):(
-            <Titulo titulo={categoriaSeleccionada} />
+        {categoriaSeleccionada.length === 0 ? null : (
+          <Titulo titulo={categoriaSeleccionada} />
         )}
+
         <div className={styles.producto}>
-      {filtrarProductos.length == 0 ? ( 
-        <ElementoNoEncontrado tipoDato="Nombre"/>
-        
-      ):(
-        filtrarProductos.map((producto) => {  
-          return <>
-          <Link to={`producto/${producto.id}`}> 
-            <Producto {...producto} key={producto.id} /> 
-          </Link>
-        </>
-        })
-      )} 
+          {filtrarProductos.length === 0 ? (
+            <ElementoNoEncontrado tipoDato="Nombre" />
+          ) : (
+            filtrarProductos.map((producto) => (
+              <Link to={`producto/${producto.id}`} key={producto.id}>
+                <Producto {...producto} />
+              </Link>
+            ))
+          )}
         </div>
       </section>
     </>

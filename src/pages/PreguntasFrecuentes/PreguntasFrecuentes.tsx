@@ -1,7 +1,16 @@
 import { useState } from 'react';
 import styles from './PreguntasFrecuentes.module.css';
 
-const preguntas = [
+type Preguntas = {
+  pregunta: string;
+  respuesta: string;
+}
+
+type ToggleArgs = {
+  index:number;
+}
+
+const preguntas: Preguntas[] = [
   {
     pregunta: '¿Cuánto tiempo tengo para hacer una devolución?',
     respuesta: 'Podés hacer la devolución dentro de las 48 horas de que te entregamos el producto.',
@@ -45,9 +54,9 @@ const preguntas = [
 ];
 
 export default function PreguntasFrecuentes() {
-  const [abierto, setAbierto] = useState(null);
+  const [abierto, setAbierto] = useState<number | null>(null); 
 
-  const toggle = (index) => {
+  const toggle = ({index} : ToggleArgs ) => {
     setAbierto(abierto === index ? null : index);
   };
 
@@ -59,7 +68,7 @@ export default function PreguntasFrecuentes() {
           <div key={i} className={styles.item}>
             <button
               className={styles.pregunta}
-              onClick={() => toggle(i)}
+              onClick={() => toggle({index: i})}
               aria-expanded={abierto === i}
               aria-controls={`respuesta-${i}`}
               id={`pregunta-${i}`}

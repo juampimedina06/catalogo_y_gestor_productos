@@ -3,24 +3,39 @@ import styles from "./NuevoProducto.module.css";
 import servicioProductos from "../../components/services/servicioProductos";
 import { useForm } from "../../hooks/useForm";
 
+interface FormData{
+  nombreProducto:string;
+    precioProducto:number;
+    fechaProducto:string;
+    codigoProducto:string;
+    descripcionProducto:string
+    categoriaProducto:string;
+    cantidadProducto:number;
+    imagenPrincipal:string;
+    // imagenDos:string;
+    // imagenTres:string;
+    // imagenCuatro:string;
+    // imagenCinco:string;
+}
+
 function NuevoProducto() {
 
-  const {handleChange, nombreProducto, precioProducto,fechaProducto,codigoProducto,descripcionProducto,categoriaProducto,cantidadProducto,imagenPrincipal,imagenDos,imagenTres,imagenCuatro,imagenCinco} = useForm({
+  const {handleChange, nombreProducto, precioProducto,fechaProducto,codigoProducto,descripcionProducto,categoriaProducto,cantidadProducto,imagenPrincipal} = useForm<FormData>({
     nombreProducto:"",
-    precioProducto:"",
+    precioProducto:0,
     fechaProducto:"",
     codigoProducto:"",
     descripcionProducto:"",
     categoriaProducto:"",
-    cantidadProducto:"",
-    imagenPrincipal:"",
-    imagenDos:"",
-    imagenTres:"",
-    imagenCuatro:"",
-    imagenCinco:"",
+    cantidadProducto:0,
+    imagenPrincipal:""
+    // imagenDos:"",
+    // imagenTres:"",
+    // imagenCuatro:"",
+    // imagenCinco:"",
   })
 
-  const subirProducto = (e) => {
+  const subirProducto = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const nuevoProducto = {
       nombre: nombreProducto,
@@ -60,11 +75,10 @@ function NuevoProducto() {
             nameCategoria="categoriaProducto" valueCategoria={categoriaProducto}
             nameCantidad="cantidadProducto" valueCantidad={cantidadProducto}
             nameImagenPrincipal="imagenPrincipal" valueImagenPrincipal={imagenPrincipal}
-            nameImangeDos="ImagenDos" valueImagenDos={imagenDos}
-            nameImangeTres="ImagenTres" valueImagenTres={imagenTres}
-            nameImangeCuatro="ImagenCuatro" valueImagenCuatro={imagenCuatro}
-            nameImangeCinco="ImagenCinco" valueImagenCinco={imagenCinco}
-
+            // nameImangeDos="ImagenDos" valueImagenDos={imagenDos}
+            // nameImangeTres="ImagenTres" valueImagenTres={imagenTres}
+            // nameImangeCuatro="ImagenCuatro" valueImagenCuatro={imagenCuatro}
+            // nameImangeCinco="ImagenCinco" valueImagenCinco={imagenCinco}
           />
         </div>
     </section>

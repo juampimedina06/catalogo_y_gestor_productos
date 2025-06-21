@@ -21,7 +21,7 @@ Este proyecto es una aplicación web que permite visualizar, administrar y carga
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **Frontend:** HTML, CSS, JavaScript *React*  
+- **Frontend:** HTML, CSS, JavaScript/Typescript *React*  
 - **Backend:** (en desarrollo)  
 - **Base de datos:** (próximamente)  
 - **Control de versiones:** Git + GitHub  
@@ -31,7 +31,11 @@ Este proyecto es una aplicación web que permite visualizar, administrar y carga
 ## 📌 Objetivos del Proyecto
 
 - Aplicar buenas prácticas de desarrollo web con React.
+<<<<<<< HEAD
 - Implementar Typescript para qu pueda ser mas escalable.
+=======
+- Implementar Typescript.
+>>>>>>> 6223b9f9fe848f2f41a5198ec2d3823a925140b1
 - Simular un entorno profesional de gestión de productos.
 - Implementar una experiencia completa: desde la carga de un producto hasta su visualización en el catálogo.
 - Aprender a conectar el frontend con una base de datos.
@@ -44,5 +48,7 @@ Este proyecto es una aplicación web que permite visualizar, administrar y carga
 - Filtros por categorías, búsqueda por nombre
 - Modo oscuro
 - animaciones
+
+
 
 

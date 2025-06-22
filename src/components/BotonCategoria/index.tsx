@@ -4,7 +4,14 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import styles from "./BotonCategoria.module.css"
 
-const BotonCategoria = ({name,value,handleChange, categorias}) => {
+interface PropsBotonCategoria {
+  name: string;
+  value: string;
+  handleChange: (e: SelectChangeEvent) => void;
+  categorias: string[];
+}
+
+const BotonCategoria = ({name,value,handleChange, categorias}: PropsBotonCategoria) => {
 
   return (
     <div className={styles.contenedor_categorias}>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import InputStock from "../FormularioStock/InputStock"
 import InputCategoria from "../InputCategoria/InputCategoria"
-import servicioProductos from "../services/servicioProductos"
+import servicioProductos from "../../services/productos"
 import styles from "./FormularioNuevoProducto.module.css"
 
 const FormularioNuevoProducto = ({

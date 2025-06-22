@@ -7,10 +7,8 @@ import 'swiper/css/navigation';
 
 import styles from "./Banner.module.css"
 
-
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
-
 
 const CaruselPrincipal = () => {
   return (

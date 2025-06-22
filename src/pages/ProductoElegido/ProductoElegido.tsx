@@ -3,21 +3,35 @@ import { useParams } from "react-router-dom";
 import CirculoCargar from "../../components/CirculoCargar/CirculoCargar";
 import styles from "./ProductoElegido.module.css";
 
+interface ProductoElegido {
+  nombre: string;
+  imagen: string;
+  imagen_one: string;
+  imagen_two: string;
+  imagen_three: string;
+  imagen_four: string;
+  descripcion: string;
+  categoria: string;
+  precio: string;
+}
+
 const ProductoElegido = () => {
-  const {id} = useParams();
-  const [productoElegido, setProductoElegido] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const {id} = useParams<string>();
+  const [productoElegido, setProductoElegido] = useState<ProductoElegido | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     fetch(`https://67c6be3c351c081993fe9984.mockapi.io/productos/producto/${id}`)
       .then((res) => res.json())
-      .then((data) => {
+      .then((data : ProductoElegido ) => {
         setProductoElegido(data);
         setLoading(false);
       });
   }, [id]);
 
-  if (loading) return <CirculoCargar />;
+  // if (loading) return <CirculoCargar />;
+  if (loading || !productoElegido) return <CirculoCargar />;
+
 
   const mensajeWsp = `Hola! Quiero encargar el producto: ${productoElegido.nombre}`;
   const linkWsp = `https://wa.me/543516598216?text=${encodeURIComponent(mensajeWsp)}`;

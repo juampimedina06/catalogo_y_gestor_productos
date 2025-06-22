@@ -8,25 +8,15 @@ import BarraBusqueda from '../../components/BarraBusqueda/BarraBusqueda';
 import ElementoNoEncontrado from '../../components/ElementoNoEncontrado/ElementoNoEncontrado';
 import BotonCategoria from '../../components/BotonCategoria';
 import { Link } from 'react-router-dom';
-import servicioProducto from "../../services/productos";
 import { useForm } from '../../hooks/useForm';
+import servicioProducto from "../../services/productos"
+import type { ProductoType } from '../../types/ProductoType';
 
 interface FormData{
   filtrador:string;
   categoriaSeleccionada:string;
 }
 
-interface ProductoType {
-  id:number;
-  nombre: string;
-  imagen: string;
-  cantidad: number;
-  categoria: string;
-  precio: number;
-  fecha: string;
-  descripcion:string;
-  codigo:string;
-}
 
 const Inicio = () => {
   const [producto, setProducto] = useState<ProductoType[]>([]);

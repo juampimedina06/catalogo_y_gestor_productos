@@ -1,6 +1,6 @@
 import FormularioNuevoProducto from "../../components/FormularioNuevoProducto/FormularioNuevoProducto";
 import styles from "./NuevoProducto.module.css";
-import servicioProductos from "../../components/services/servicioProductos";
+import servicioProductos from "../../services/productos"
 import { useForm } from "../../hooks/useForm";
 
 interface FormData{
@@ -18,7 +18,8 @@ interface FormData{
     // imagenCinco:string;
 }
 
-function NuevoProducto() {
+
+const NuevoProducto = () => {
 
   const {handleChange, nombreProducto, precioProducto,fechaProducto,codigoProducto,descripcionProducto,categoriaProducto,cantidadProducto,imagenPrincipal} = useForm<FormData>({
     nombreProducto:"",
@@ -52,7 +53,7 @@ function NuevoProducto() {
       .crear(nuevoProducto)
       .then((respuesta)=>{
         console.log("producto subido con exito", respuesta)
-        
+        //Usar componente de notificacion.
         window.location.href = "/";
       })
       .catch((error)=>{

@@ -1,6 +1,10 @@
 import styles from "./Container.module.css"
 
-const Container = ({children}) => {
+interface PropsContainer{
+  children:string;
+}
+
+const Container = ({children}:PropsContainer) => {
   return (
     <section className={styles.container}>
         {children}

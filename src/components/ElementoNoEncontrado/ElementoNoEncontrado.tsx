@@ -1,6 +1,10 @@
 import styles from './ElementoNoEncontrado.module.css'
 
-const ElementoNoEncontrado = ({tipoDato}) => {
+interface PropTipoDato{
+  tipoDato: string;
+}
+
+const ElementoNoEncontrado = ({tipoDato}: PropTipoDato) => {
   return (
     <div className={styles.contenedor_no_encontrado}>
         <p className={styles.parrafo_no_encontrado}>No se encontro producto con ese {tipoDato}</p>

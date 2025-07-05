@@ -4,6 +4,16 @@ import servicioProductos from "../../services/productos"
 import { useEffect, useState } from "react"
 import InputCategoria from "../InputCategoria/InputCategoria"
 
+interface PropsFormularioStock{
+  onSubmit: (e:FormEvent<HTMLFormElement>) => void;
+  onChange: (e:React.ChangeEvent<HTMLInputElement>) => void;
+  nameCodigo:string; valueCodigo:string;
+  nameNombre:string; valueNombre:string;
+  nameCantidad:string; valueCantidad:number;
+  nameCategoria:string; valueCategoria:string;
+  namePrecio:string; valuePrecio:number;
+}
+
 const FormularioStock = ({
     onSubmit, 
     onChange,
@@ -12,8 +22,9 @@ const FormularioStock = ({
     nameCantidad,valueCantidad,
     nameCategoria, valueCategoria,
     namePrecio,valuePrecio
-}) => {
-  const [categorias, setCategorias] = useState([valueCategoria])
+} : PropsFormularioStock) => {
+
+  const [categorias, setCategorias] = useState<string[]>([valueCategoria])
 
   useEffect(() =>{
   servicioProductos

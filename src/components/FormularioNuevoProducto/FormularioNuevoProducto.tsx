@@ -3,6 +3,21 @@ import InputStock from "../FormularioStock/InputStock"
 import InputCategoria from "../InputCategoria/InputCategoria"
 import servicioProductos from "../../services/productos"
 import styles from "./FormularioNuevoProducto.module.css"
+import type { FormEvent } from "react";
+
+
+interface PropsFormularioNuevoProducto {
+  onSubmit: (e:FormEvent<HTMLFormElement>) => void;
+  onChange: (e:React.ChangeEvent<HTMLInputElement>) => void;
+  nameNombre:string; valueNombre:string;
+  namePrecio:string; valuePrecio:number;
+  nameFecha:string; valueFecha:string;
+  nameCodigo:string; valueCodigo:string;
+  nameDescripcion:string; valueDescripcion:string;
+  nameCategoria:string; valueCategoria:string;
+  nameCantidad:string; valueCantidad:number;
+  nameImagenPrincipal:string; valueImagenPrincipal:string;
+}
 
 const FormularioNuevoProducto = ({
     onSubmit, 
@@ -15,11 +30,7 @@ const FormularioNuevoProducto = ({
     nameCategoria, valueCategoria,
     nameCantidad, valueCantidad,
     nameImagenPrincipal, valueImagenPrincipal,
-    nameImangenDos, valueImagenDos,
-    nameImangenTres, valueImagenTres,
-    nameImangenCuatro, valueImagenCuatro,
-    nameImagenCinco, valueImagenCinco
-}) => {
+}:PropsFormularioNuevoProducto) => {
 
   const [categorias, setCategorias] = useState([valueCategoria])
   
@@ -96,7 +107,7 @@ const FormularioNuevoProducto = ({
         clase="file"
         tipoImagen="Subir Imagen principal"
       />
-      <InputStock 
+      {/* <InputStock 
         name={nameImangenDos}
         value={valueImagenDos}
         onChange={onChange}
@@ -127,7 +138,7 @@ const FormularioNuevoProducto = ({
         type="file"
         clase="file"
         tipoImagen="Subir Imagen"
-      />
+      /> */}
       <button type="submit" className={styles.boton_formulario}>Enviar</button>
     </form>
   )

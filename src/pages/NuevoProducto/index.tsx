@@ -4,7 +4,7 @@ import servicioProductos from "../../services/productos"
 import { useForm } from "../../hooks/useForm";
 
 interface FormData{
-  nombreProducto:string;
+    nombreProducto:string;
     precioProducto:number;
     fechaProducto:string;
     codigoProducto:string;
@@ -12,10 +12,6 @@ interface FormData{
     categoriaProducto:string;
     cantidadProducto:number;
     imagenPrincipal:string;
-    // imagenDos:string;
-    // imagenTres:string;
-    // imagenCuatro:string;
-    // imagenCinco:string;
 }
 
 
@@ -30,10 +26,6 @@ const NuevoProducto = () => {
     categoriaProducto:"",
     cantidadProducto:0,
     imagenPrincipal:""
-    // imagenDos:"",
-    // imagenTres:"",
-    // imagenCuatro:"",
-    // imagenCinco:"",
   })
 
   const subirProducto = (e: React.FormEvent<HTMLFormElement>) => {
@@ -76,10 +68,6 @@ const NuevoProducto = () => {
             nameCategoria="categoriaProducto" valueCategoria={categoriaProducto}
             nameCantidad="cantidadProducto" valueCantidad={cantidadProducto}
             nameImagenPrincipal="imagenPrincipal" valueImagenPrincipal={imagenPrincipal}
-            // nameImangeDos="ImagenDos" valueImagenDos={imagenDos}
-            // nameImangeTres="ImagenTres" valueImagenTres={imagenTres}
-            // nameImangeCuatro="ImagenCuatro" valueImagenCuatro={imagenCuatro}
-            // nameImangeCinco="ImagenCinco" valueImagenCinco={imagenCinco}
           />
         </div>
     </section>

@@ -1,11 +1,21 @@
 import { useState } from "react";
 import styles from "./FormularioStock.module.css";
 
-const InputStock = ({ name, value, onChange, type, placeholder, clase, tipoImagen }) => {
+interface PropsInputStock{
+  name:string;
+  value:string | number;
+  onChange: (e:React.ChangeEvent<HTMLInputElement>) => void;
+  type: string;
+  placeholder?:string;
+  clase:string;
+  tipoImagen?:string;
+}
+
+const InputStock = ({ name, value, onChange, type, placeholder, clase, tipoImagen } : PropsInputStock ) => {
   const [nombreArchivo, setNombreArchivo] = useState("Ningún archivo seleccionado");
 
   if (clase === "file") {
-    const handleArchivo = (e) => {
+    const handleArchivo = (e:React.ChangeEvent<HTMLInputElement>) => {
       onChange(e);
       setNombreArchivo(e.target.files[0]?.name || "Ningún archivo seleccionado");
     };

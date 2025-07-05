@@ -4,10 +4,13 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import styles from "./BotonCategoria.module.css"
 
+import type { SelectChangeEvent } from '@mui/material/Select';
+
+
 interface PropsBotonCategoria {
   name: string;
   value: string;
-  handleChange: (e: SelectChangeEvent) => void;
+  handleChange?: (event: SelectChangeEvent<string>, child: React.ReactNode) => void;
   categorias: string[];
 }
 

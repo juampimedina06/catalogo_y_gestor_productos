@@ -12,11 +12,13 @@ import { useForm } from '../../hooks/useForm';
 import servicioProducto from "../../services/productos"
 import type { ProductoType } from '../../types/ProductoType';
 
+import type { SelectChangeEvent } from '@mui/material/Select';
+
+
 interface FormData{
   filtrador:string;
   categoriaSeleccionada:string;
 }
-
 
 const Inicio = () => {
   const [producto, setProducto] = useState<ProductoType[]>([]);
@@ -27,6 +29,17 @@ const Inicio = () => {
     filtrador: "",
     categoriaSeleccionada: "",
   });
+
+  const handleCategoriaChange = (event: SelectChangeEvent<string>) => {
+  const fakeEvent = {
+    target: {
+      name: "categoriaSeleccionada",
+      value: event.target.value,
+    },
+  } as React.ChangeEvent<HTMLInputElement>;
+
+  handleChange(fakeEvent);
+};
 
   useEffect(() => {
     servicioProducto
@@ -65,7 +78,7 @@ const Inicio = () => {
           <BotonCategoria
             name="categoria"
             value={categoriaSeleccionada}
-            handleChange={handleChange}
+            handleChange={handleCategoriaChange}
             categorias={categorias}
           />
         </div>

@@ -31,11 +31,8 @@ Este proyecto es una aplicación web que permite visualizar, administrar y carga
 ## 📌 Objetivos del Proyecto
 
 - Aplicar buenas prácticas de desarrollo web con React.
-<<<<<<< HEAD
 - Implementar Typescript para qu pueda ser mas escalable.
-=======
 - Implementar Typescript.
->>>>>>> 6223b9f9fe848f2f41a5198ec2d3823a925140b1
 - Simular un entorno profesional de gestión de productos.
 - Implementar una experiencia completa: desde la carga de un producto hasta su visualización en el catálogo.
 - Aprender a conectar el frontend con una base de datos.

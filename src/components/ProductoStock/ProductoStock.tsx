@@ -4,12 +4,29 @@ import styles from './ProductoStock.module.css'
 import FormularioStock from '../FormularioStock/FormularioStock'
 import servicioProducto from "../../services/productos"
 import { useForm } from "../../hooks/useForm";
+import { ProductoType } from '../../types/ProductoType'
 
+interface FormData{
+  nuevoCodigo:string;
+  nuevoNombre:string;
+  nuevaCantidad:number; 
+  nuevaCategoria:string; 
+  nuevoPrecio:number;
+}
 
-const ProductoStock = ({filtrarProductos, actualizarProductoEstado,eliminarProductoEstado, mensajeNotificacion, tipoNotificacion }) => {
-  const [editar, setEditar] = useState(null)
+interface PropsProductoStock {
+  filtrarProductos: ProductoType[];
+  actualizarProductoEstado: (actualizar: (productosPrevios: ProductoType[]) => ProductoType[]) => void;
+  eliminarProductoEstado: (eliminar: (productosPrevios: ProductoType[]) => ProductoType[]) => void;
+  mensajeNotificacion: (mensaje: string) => void;
+  tipoNotificacion: (tipo: string | null) => void;
+}
 
-  const editarProducto = (producto) => {
+const ProductoStock = ({filtrarProductos, actualizarProductoEstado,eliminarProductoEstado, mensajeNotificacion, tipoNotificacion } : PropsProductoStock ) => {
+
+  const [editar, setEditar] = useState<number | null>(null);
+
+  const editarProducto = (producto: ProductoType) => {
   setEditar(producto.id)
   setFormulario({
     nuevoCodigo: producto.codigo,
@@ -20,17 +37,20 @@ const ProductoStock = ({filtrarProductos, actualizarProductoEstado,eliminarProdu
   })
 }
 
-  const {handleChange, nuevoCodigo, nuevoNombre, nuevaCantidad, nuevaCategoria, nuevoPrecio, setFormulario} = useForm({
+  const {handleChange, nuevoCodigo, nuevoNombre, nuevaCantidad, nuevaCategoria, nuevoPrecio, setFormulario} = useForm<FormData>({
   nuevoNombre: '',
   nuevoCodigo:'',
-  nuevaCantidad: '',
+  nuevaCantidad: 0,
   nuevaCategoria:'',
-  nuevoPrecio:'',
+  nuevoPrecio:0,
   })
 
-  const actualizarProducto = (e) => {
+  const actualizarProducto = (e:React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+
+
       const objetoProducto = {
+        id:editar!,
         nombre: nuevoNombre,
         cantidad:nuevaCantidad,
         categoria: nuevaCategoria,
@@ -42,7 +62,7 @@ const ProductoStock = ({filtrarProductos, actualizarProductoEstado,eliminarProdu
         return
       }
       servicioProducto
-      .actualizar(editar, objetoProducto)
+      .actualizar(editar!, objetoProducto)
       .then(() => {
       actualizarProductoEstado((productosAnteriores) =>
         productosAnteriores.map((producto) =>
@@ -68,7 +88,7 @@ const ProductoStock = ({filtrarProductos, actualizarProductoEstado,eliminarProdu
       });
   }
 
-  const eliminarProducto = (id) => {
+  const eliminarProducto = (id : number) => {
       if (window.confirm('¿Seguro que querés eliminar el producto?')) {
         servicioProducto
         .eliminar(id)
@@ -78,7 +98,7 @@ const ProductoStock = ({filtrarProductos, actualizarProductoEstado,eliminarProdu
         );
       })
         .catch(error =>{
-          console.log("error al eliminar un telefono",error)
+          console.log("error al eliminar el producto",error)
         })
       }
     }

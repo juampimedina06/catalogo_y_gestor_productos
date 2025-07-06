@@ -1,6 +1,11 @@
 import styles from "./Notificacion.module.css"
 
-const Notificacion = ({ mensaje, clase }) => {
+interface PropsNotificacion{
+    mensaje:string | null;
+    clase:string;
+}
+
+const Notificacion = ({ mensaje, clase }:PropsNotificacion) => {
     if (mensaje === null) {
         return null
     }

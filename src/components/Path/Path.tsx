@@ -1,6 +1,11 @@
 import styles from './Path.module.css'
 
-const Path = ({ indicador, children }) => {
+interface PropsPath{
+  indicador:string;
+  children:React.ReactNode;      
+}
+
+const Path = ({ indicador, children } : PropsPath) => {
   return (
     <div className={styles.contenedor_indicador}>
       {children}

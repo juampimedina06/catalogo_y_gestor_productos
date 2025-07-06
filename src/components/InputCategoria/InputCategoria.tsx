@@ -1,6 +1,14 @@
 import styles from "./inputCategoria.module.css"
 
-const InputCategoria = ({name, value, handleChange, categorias, clase}) => {
+interface PropsInputCategoria{
+    name:string;
+    value:string;
+    handleChange: (e:React.ChangeEvent<HTMLSelectElement>) => void;
+    categorias:string[];
+    clase:string;
+}
+
+const InputCategoria = ({name, value, handleChange, categorias, clase} : PropsInputCategoria ) => {
     return (
         <select 
         name={name}

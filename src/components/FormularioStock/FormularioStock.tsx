@@ -5,8 +5,8 @@ import { useEffect, useState } from "react"
 import InputCategoria from "../InputCategoria/InputCategoria"
 
 interface PropsFormularioStock{
-  onSubmit: (e:FormEvent<HTMLFormElement>) => void;
-  onChange: (e:React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   nameCodigo:string; valueCodigo:string;
   nameNombre:string; valueNombre:string;
   nameCantidad:string; valueCantidad:number;

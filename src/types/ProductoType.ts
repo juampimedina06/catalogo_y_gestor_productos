@@ -1,11 +1,11 @@
 export  interface ProductoType {
-  id?: string;
+  id: number;
   nombre: string;
-  imagen: string;
+  imagen?: string;
   cantidad: number;
   categoria: string;
   precio: number;
-  descripcion: string;
-  fecha: string;
+  descripcion?: string;
+  fecha?: string;
   codigo: string;
 }

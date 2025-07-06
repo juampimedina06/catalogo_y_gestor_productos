@@ -9,6 +9,7 @@ interface PropsInputStock{
   placeholder?:string;
   clase:string;
   tipoImagen?:string;
+
 }
 
 const InputStock = ({ name, value, onChange, type, placeholder, clase, tipoImagen } : PropsInputStock ) => {
@@ -17,7 +18,7 @@ const InputStock = ({ name, value, onChange, type, placeholder, clase, tipoImage
   if (clase === "file") {
     const handleArchivo = (e:React.ChangeEvent<HTMLInputElement>) => {
       onChange(e);
-      setNombreArchivo(e.target.files[0]?.name || "Ningún archivo seleccionado");
+      setNombreArchivo(e.target.files?.[0]?.name || "Ningún archivo seleccionado");
     };
 
     return (

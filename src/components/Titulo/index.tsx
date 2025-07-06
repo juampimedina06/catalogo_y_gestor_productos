@@ -1,6 +1,10 @@
 import styles from "./Titulo.module.css"
 
-const Titulo = ({titulo}) => {
+interface PropTitulo{
+  titulo:string;
+}
+
+const Titulo = ({titulo}:PropTitulo) => {
   return (
     <h2 className={styles.titulo}>{titulo}</h2>
   )

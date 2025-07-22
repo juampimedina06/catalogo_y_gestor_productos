@@ -3,7 +3,6 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-    background-attachment: blue;
     padding: 0 0 0 2.5rem;
 }
 
@@ -23,7 +22,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -32,6 +30,7 @@
     color: var(--color-claro);
     border-radius: 5px;
     height: 2.5rem;
+    width: 100%;
 }
 
 

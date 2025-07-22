@@ -1,5 +1,5 @@
 export  interface ProductoType {
-  id: number;
+  id?: number;
   nombre: string;
   imagen?: string;
   cantidad: number;

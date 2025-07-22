@@ -8,7 +8,7 @@ import type { FormEvent } from "react";
 
 interface PropsFormularioNuevoProducto {
   onSubmit: (e:FormEvent<HTMLFormElement>) => void;
-  onChange: (e:React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   nameNombre:string; valueNombre:string;
   namePrecio:string; valuePrecio:number;
   nameFecha:string; valueFecha:string;
@@ -45,45 +45,81 @@ const FormularioNuevoProducto = ({
 
   return (
     <form className={styles.formulario} onSubmit={onSubmit}>
-      <InputStock 
-        name={nameNombre}
-        value={valueNombre}
-        onChange={onChange}
-        type="text"
-        placeholder={nameNombre}
-        clase="producto"
-      />
-      <InputStock 
-        name={namePrecio}
-        value={valuePrecio}
-        onChange={onChange}
-        type="number"
-        placeholder={namePrecio}
-        clase="producto"
-      />
-      <InputStock 
-        name={nameFecha}
-        value={valueFecha}
-        onChange={onChange}
-        type="date"
-        clase="producto"
-      />
-      <InputStock 
-        name={nameCodigo}
-        value={valueCodigo}
-        onChange={onChange}
-        type="text"
-        placeholder={nameCodigo}
-        clase="producto"
-      />
-      <InputStock 
-        name={nameDescripcion}
-        value={valueDescripcion}
-        onChange={onChange}
-        type="text"
-        placeholder={nameDescripcion}
-        clase="producto"
-      />
+      <div className={styles.contenedor_inputs}>
+        <div className={styles.contenedor_input}>
+          <label className={styles.label}>Nombre del producto</label>
+          <InputStock 
+          name={nameNombre}
+          value={valueNombre}
+          onChange={onChange}
+          type="text"
+          placeholder="Nombre del Pruducto"
+          clase="producto"
+          />
+        </div>
+        <div className={styles.contenedor_input}>
+          <label className={styles.label}>Cantidad del producto</label>
+          <InputStock 
+            name={namePrecio}
+            value={valuePrecio}
+            onChange={onChange}
+            type="number"
+            placeholder="Cantidad del producto"
+            clase="producto"
+          />
+        </div>
+      </div>
+
+      <div className={styles.contenedor_inputs}>
+        <div className={styles.contenedor_input}>
+          <label className={styles.label}>Fecha de hoy</label>
+          <InputStock 
+          name={nameFecha}
+          value={valueFecha}
+          onChange={onChange}
+          type="date"
+          clase="producto"
+          placeholder="Fecha de hoy"
+          />
+        </div>
+      <div className={styles.contenedor_input}>
+          <label className={styles.label}>Codigo del producto</label>
+          <InputStock 
+          name={nameCodigo}
+          value={valueCodigo}
+          onChange={onChange}
+          type="text"
+          placeholder="Codigo del producto"
+          clase="producto"
+          />
+        </div>
+      </div>
+
+      <div className={styles.contenedor_inputs}>
+        <div className={styles.contenedor_input}>
+          <label className={styles.label}>Descripcion del producto</label>
+          <InputStock 
+            name={nameDescripcion}
+            value={valueDescripcion}
+            onChange={onChange}
+            type="text"
+            placeholder="Descripcion del producto"
+            clase="producto"
+          />
+        </div>
+        <div className={styles.contenedor_input}>
+          <label className={styles.label}>Categoria del producto</label>          
+          <InputStock 
+            name={nameCantidad}
+            value={valueCantidad}
+            onChange={onChange}
+            type="number"
+            placeholder={nameCantidad}
+            clase="producto"
+          />
+        </div>
+      </div>
+      <label className={styles.label}>Categoria del producto</label>
       <InputCategoria 
         name={nameCategoria}
         value={valueCategoria}
@@ -91,14 +127,7 @@ const FormularioNuevoProducto = ({
         categorias={categorias}
         clase="producto"
       />
-      <InputStock 
-        name={nameCantidad}
-        value={valueCantidad}
-        onChange={onChange}
-        type="number"
-        placeholder={nameCantidad}
-        clase="producto"
-      />
+      <label className={styles.label}>Imagen del producto</label>
       <InputStock 
         name={nameImagenPrincipal}
         value={valueImagenPrincipal}
@@ -107,7 +136,14 @@ const FormularioNuevoProducto = ({
         clase="file"
         tipoImagen="Subir Imagen principal"
       />
-      {/* <InputStock 
+      <button type="submit" className={styles.boton_formulario}>Enviar</button>
+    </form>
+  )
+}
+
+export default FormularioNuevoProducto
+
+{/* <InputStock 
         name={nameImangenDos}
         value={valueImagenDos}
         onChange={onChange}
@@ -139,9 +175,3 @@ const FormularioNuevoProducto = ({
         clase="file"
         tipoImagen="Subir Imagen"
       /> */}
-      <button type="submit" className={styles.boton_formulario}>Enviar</button>
-    </form>
-  )
-}
-
-export default FormularioNuevoProducto

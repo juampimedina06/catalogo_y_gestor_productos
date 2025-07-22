@@ -14,7 +14,6 @@ interface FormData{
     imagenPrincipal:string;
 }
 
-
 const NuevoProducto = () => {
 
   const {handleChange, nombreProducto, precioProducto,fechaProducto,codigoProducto,descripcionProducto,categoriaProducto,cantidadProducto,imagenPrincipal} = useForm<FormData>({

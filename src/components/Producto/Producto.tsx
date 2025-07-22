@@ -4,7 +4,7 @@ import { CardActionArea} from '@mui/material';
 interface PropsProducto{
   nombre:string;
   precio:number;
-  imagen:string;
+  imagen?:string;
 }
 
 const Producto = ({nombre, precio, imagen}:PropsProducto) => {

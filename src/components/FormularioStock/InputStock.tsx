@@ -48,6 +48,7 @@ const InputStock = ({ name, value, onChange, type, placeholder, clase, tipoImage
       type={type}
       placeholder={placeholder}
     />
+    
   );
 };
 
